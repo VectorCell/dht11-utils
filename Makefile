@@ -6,6 +6,9 @@ CFLAGS = -g -Wall
 .PHONY: default all clean
 
 default: $(TARGET)
+	sudo chown root:root $(TARGET)
+	sudo chmod +s $(TARGET)
+
 all: default
 
 OBJECTS = $(patsubst %.c, %.o, $(wildcard *.c))
@@ -18,6 +21,10 @@ HEADERS = $(wildcard *.h)
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(OBJECTS) -Wall $(LIBS) -o $@
+
+test: all
+	./dht11_read
+	./dht11_read 4
 
 clean:
 	-rm -f *.o
