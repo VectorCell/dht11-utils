@@ -24,7 +24,6 @@ $(TARGET): $(OBJECTS)
 
 test: all
 	./dht11_read
-	./dht11_read 4
 
 clean:
 	-rm -f *.o

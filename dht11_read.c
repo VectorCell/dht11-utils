@@ -64,8 +64,8 @@ int main (int argc, char *argv[])
 	int p_data = 1; // hardware dependent
 	if (argc > 1) {
 		p_data = atoi(argv[1]);
+		fprintf(stderr, "using pin %d\n", p_data);
 	}
-	fprintf(stderr, "using pin %d\n", p_data);
 
 	if (wiringPiSetup() == -1) {
 		fprintf(stderr, "ERROR: unable to read gpio");
